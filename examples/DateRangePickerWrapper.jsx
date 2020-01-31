@@ -108,7 +108,7 @@ class DateRangePickerWrapper extends React.Component {
     }
 
     this.state = {
-      focusedInput,
+      focusedInput:START_DATE,
       startDate: props.initialStartDate,
       endDate: props.initialEndDate,
     };
@@ -125,7 +125,8 @@ class DateRangePickerWrapper extends React.Component {
     });
   }
 
-  onFocusChange(focusedInput) {
+   onFocusChange(focusedInput) {
+    if (!focusedInput) return; // doesn't update the focusedInput if it is trying to close the DRP
     this.setState({ focusedInput });
   }
 
